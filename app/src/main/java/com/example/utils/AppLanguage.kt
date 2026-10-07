@@ -45,7 +45,14 @@ data class AppStrings(
     val shareBreakdown: String,
     val copiedToClipboard: String,
     val optionalZeroDefault: String,
-    val netSalaryBadge: String
+    val netSalaryBadge: String,
+    val aboutTitle: String,
+    val aboutDevelopedBy: String,
+    val aboutCompany: String,
+    val aboutCopyright: String,
+    val aboutLicenseNotice: String,
+    val aboutBrandingNotice: String,
+    val close: String
 )
 
 object LocalizationManager {
@@ -90,7 +97,14 @@ object LocalizationManager {
         shareBreakdown = "Share Breakdown",
         copiedToClipboard = "Salary breakdown copied to clipboard",
         optionalZeroDefault = "Defaults to ৳0",
-        netSalaryBadge = "Net Pay"
+        netSalaryBadge = "Net Pay",
+        aboutTitle = "About BD Salary Calculator",
+        aboutDevelopedBy = "Developed by",
+        aboutCompany = "ViveScript Solutions LLC",
+        aboutCopyright = "© 2026 ViveScript Solutions LLC.",
+        aboutLicenseNotice = "Source code licensed under MIT License.",
+        aboutBrandingNotice = "The app name, logo, icons, screenshots, trademarks, and associated branding are proprietary property of ViveScript Solutions LLC and are not licensed under the MIT License.",
+        close = "Close"
     )
 
     private val banglaStrings = AppStrings(
@@ -133,7 +147,14 @@ object LocalizationManager {
         shareBreakdown = "শেয়ার করুন",
         copiedToClipboard = "বেতনের বিবরণ ক্লিপবোর্ডে কপি করা হয়েছে",
         optionalZeroDefault = "ঐচ্ছিক (৳০)",
-        netSalaryBadge = "নেট বেতন"
+        netSalaryBadge = "নেট বেতন",
+        aboutTitle = "অ্যাপ সম্পর্কে",
+        aboutDevelopedBy = "ডেভেলপ করেছে",
+        aboutCompany = "ViveScript Solutions LLC",
+        aboutCopyright = "© 2026 ViveScript Solutions LLC.",
+        aboutLicenseNotice = "সোর্স কোড এমআইটি (MIT) লাইসেন্সের আওতাভুক্ত।",
+        aboutBrandingNotice = "অ্যাপের নাম, লোগো, আইকন, স্ক্রিনশট, ট্রেডমার্ক এবং সম্পর্কিত ব্র্যান্ডিং ViveScript Solutions LLC-এর মালিকানাধীন সম্পত্তি এবং এমআইটি লাইসেন্সের অন্তর্ভুক্ত নয়।",
+        close = "বন্ধ করুন"
     )
 
     fun getStrings(language: AppLanguage): AppStrings {

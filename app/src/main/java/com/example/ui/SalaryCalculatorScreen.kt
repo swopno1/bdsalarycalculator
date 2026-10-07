@@ -63,6 +63,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.material.icons.outlined.Info
+import com.example.ads.BannerAdView
 import com.example.model.CustomSalaryItem
 import com.example.ui.components.AddCustomItemDialog
 import com.example.ui.components.SalaryBreakdownCard
@@ -174,6 +177,18 @@ fun SalaryCalculatorScreen(
                         )
                     }
 
+                    // About button
+                    IconButton(
+                        onClick = { viewModel.openAboutDialog() },
+                        modifier = Modifier.testTag("header_about_button")
+                    ) {
+                        Icon(
+                            imageVector = Icons.Outlined.Info,
+                            contentDescription = strings.aboutTitle,
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+
                     // Reset icon button
                     IconButton(
                         onClick = { viewModel.showResetConfirmDialog() },
@@ -190,6 +205,9 @@ fun SalaryCalculatorScreen(
                     containerColor = MaterialTheme.colorScheme.surface
                 )
             )
+        },
+        bottomBar = {
+            BannerAdView(modifier = Modifier.navigationBarsPadding())
         },
         contentWindowInsets = WindowInsets(0, 0, 0, 0)
     ) { innerPadding ->
@@ -616,6 +634,64 @@ fun SalaryCalculatorScreen(
                     modifier = Modifier.testTag("cancel_reset_button")
                 ) {
                     Text(text = strings.cancel)
+                }
+            },
+            shape = RoundedCornerShape(20.dp)
+        )
+    }
+
+    // About Dialog
+    if (state.showAboutDialog) {
+        AlertDialog(
+            onDismissRequest = { viewModel.closeAboutDialog() },
+            title = {
+                Text(
+                    text = strings.aboutTitle,
+                    style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold)
+                )
+            },
+            text = {
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Text(
+                        text = "BD Salary Calculator (v1.0.0)",
+                        style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold),
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                    Text(
+                        text = "${strings.aboutDevelopedBy}: ${strings.aboutCompany}",
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    Text(
+                        text = "https://www.vivescriptsolutions.com/",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.secondary
+                    )
+                    Text(
+                        text = strings.aboutCopyright,
+                        style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Medium)
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = strings.aboutLicenseNotice,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Text(
+                        text = strings.aboutBrandingNotice,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = { viewModel.closeAboutDialog() },
+                    modifier = Modifier.testTag("about_dialog_close_button")
+                ) {
+                    Text(text = strings.close, fontWeight = FontWeight.Bold)
                 }
             },
             shape = RoundedCornerShape(20.dp)

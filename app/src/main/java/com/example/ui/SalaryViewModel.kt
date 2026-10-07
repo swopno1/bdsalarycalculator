@@ -33,7 +33,8 @@ data class SalaryUiState(
 
     val showAddCustomAllowanceDialog: Boolean = false,
     val showAddCustomDeductionDialog: Boolean = false,
-    val showResetConfirmDialog: Boolean = false
+    val showResetConfirmDialog: Boolean = false,
+    val showAboutDialog: Boolean = false
 )
 
 class SalaryViewModel(application: Application) : AndroidViewModel(application) {
@@ -282,6 +283,14 @@ class SalaryViewModel(application: Application) : AndroidViewModel(application) 
             resetState.copy(result = computeResult(resetState))
         }
         persistValues()
+    }
+
+    fun openAboutDialog() {
+        _uiState.update { it.copy(showAboutDialog = true) }
+    }
+
+    fun closeAboutDialog() {
+        _uiState.update { it.copy(showAboutDialog = false) }
     }
 
     fun generateShareSummary(strings: com.example.utils.AppStrings): String {
