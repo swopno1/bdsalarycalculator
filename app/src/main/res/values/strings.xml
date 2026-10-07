@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BD Salary Calculator</string>
+    <string name="app_title">BD Salary Calculator</string>
+    <string name="app_tagline">Quick salary breakdown for Bangladesh</string>
+</resources>

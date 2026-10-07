@@ -1,0 +1,6 @@
+{
+  "name": "BD Salary Calculator",
+  "description": "Calculate Bangladesh salary, gross pay, allowances, deductions and take-home salary quickly.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
